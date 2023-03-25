@@ -1,8 +1,9 @@
 function Navbar() {
+
   return(
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 pt-6 pb-6">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">Art Studio</a>
+        <a className="btn btn-ghost normal-case text-xl tracking-widest">THE GALLERY</a>
       </div>
 
       <div className="flex-none">
@@ -13,6 +14,8 @@ function Navbar() {
             <span className="badge badge-sm indicator-item">8</span>
           </div>
         </label>
+
+
         <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
           <div className="card-body">
             <span className="font-bold text-lg">8 Items</span>

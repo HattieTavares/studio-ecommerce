@@ -2,13 +2,17 @@ import { productsArray } from "../productsForStore"
 import ProductCard from "../components/ProductCard"
 
 function Store() {
+    const products = productsArray.map((product) => {
+      return(
+        <ProductCard product={product} />
+    )})
+
     return (
       <>
-        <h1>Welcome to the Art Store</h1>
-        <div className="grid sm:grid-cols-1 md:grid-cols-3">
-            {productsArray.map((product, index) => (
-                <ProductCard product={product} />
-            ))}
+        <div className="flex justify-center">
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-10">
+                {products}
+            </div>   
         </div>
       </>
     )
