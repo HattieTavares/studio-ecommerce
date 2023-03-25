@@ -23,6 +23,7 @@ function CartProvider({children}) {
   }
 
   function getProductQuantity(id) {
+    console.log(id)
     const quantity = cartProducts.find(product => product.id === id)?.quantity
     if(quantity === undefined) {
       return 0
@@ -34,7 +35,6 @@ function CartProvider({children}) {
   function addOneToCart(id) {
     const quantity = getProductQuantity(id)
     if (quantity === 0 ) {
-      console.log('first')
       setCartProducts([
         ...cartProducts,
         {
@@ -43,18 +43,16 @@ function CartProvider({children}) {
         }
       ])
     } else {
-      console.log('second')
+      console.log(cartProducts[0].quantity)
       setCartProducts(
-        cartProducts.map(product =>
-          product.id === id 
-          ? {...product, quantity: product.quantity + 1} : product
-        )
+        cartProducts.map(product => product.id === id ? {...product, quantity: product.quantity + 1} : product)
       )
     }
   
   }
 
   function removeOneFromCart(id) {
+    console.log('removing one..')
     const quantity = getProductQuantity(id)
     if (quantity === 1) {
       deleteFromCart(id)
@@ -69,8 +67,12 @@ function CartProvider({children}) {
 
 
   function deleteFromCart(id) {
+    console.log(id)
     setCartProducts(cartProducts => {
-      cartProducts.filter(product => product.id != id)
+      cartProducts.filter(product => {
+        return product.id != id
+      })
+    
     })
   }
 

@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard"
 function Store() {
     const products = productsArray.map((product) => {
       return(
-        <ProductCard product={product} />
+        <ProductCard key={product.id} product={product} />
     )})
 
     return (
